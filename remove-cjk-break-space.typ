@@ -1,41 +1,41 @@
 #import "transform-childs.typ": transform-childs
 #import "@preview/touying:0.6.1": utils
 
-#let cjk-char = "[\p{Han}，。；：！？‘’“”（）「」【】…—]"
-#let ends-with-cjk(it) = {
-  (
-    it != none
-      and (
-        (it.has("text") and it.text.ends-with(regex(cjk-char))) or (it.has("body") and ends-with-cjk(it.body))
-      )
-  )
-}
-#let start-with-cjk(it) = {
-  (
-    it != none
-      and (
-        (it.has("text") and it.text.starts-with(regex(cjk-char))) or (it.has("body") and start-with-cjk(it.body))
-      )
-  )
-}
+#let cjk-char-regex = regex("[\p{Han}，。；：！？‘’“”（）「」【】…—]")
+#let ends-with-cjk(it) = (
+  it != none
+    and (
+      (it.has("text") and it.text.ends-with(cjk-char-regex)) or (it.has("body") and ends-with-cjk(it.body))
+    )
+)
+
+#let start-with-cjk(it) = (
+  it != none
+    and (
+      (it.has("text") and it.text.starts-with(cjk-char-regex)) or (it.has("body") and start-with-cjk(it.body))
+    )
+)
+
+#let is-text(it) = (
+  it != none and it.func() == text
+)
 
 #let remove-cjk-break-space(rest) = {
   rest = transform-childs(rest, remove-cjk-break-space)
   if utils.is-sequence(rest) {
-    let last-a = none
-    let last-b = none
-    for item in rest.children {
-      if last-b == [ ] {
-        if ends-with-cjk(last-a) or start-with-cjk(item) {
-          last-b = []
-        }
+    let first = none
+    let mid = none
+    for third in rest.children {
+      // first, mid, third
+      if mid == [ ] and is-text(first) and is-text(third) and (ends-with-cjk(first) or start-with-cjk(third)) {
+        mid = none
       }
-      last-a
-      last-a = last-b
-      last-b = item
+      first
+      first = mid
+      mid = third
     }
-    last-a
-    last-b
+    first
+    mid
   } else {
     rest
   }
