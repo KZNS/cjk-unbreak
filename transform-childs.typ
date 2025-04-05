@@ -1,13 +1,13 @@
-#import "internal-structures.typ": *
+#import "@preview/touying:0.6.1": utils
 
 #let transform-childs(rest, func) = {
-  if is-sequence(rest) {
+  if utils.is-sequence(rest) {
     for item in rest.children {
       func(item)
     }
-  } else if is-styled(rest) {
+  } else if utils.is-styled(rest) {
     let child = func(rest.child)
-    reconstruct-styled(rest, child)
+    utils.reconstruct-styled(rest, child)
   } else if rest.func() == link {
     link(rest.dest, func(rest.body))
   } else if rest.has("body") {

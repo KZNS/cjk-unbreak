@@ -1,4 +1,5 @@
-#import "../transform/lib.typ": *
+#import "transform-childs.typ": transform-childs
+#import "@preview/touying:0.6.1": utils
 
 #let cjk-char = "[\p{Han}，。；：！？‘’“”（）「」【】…—]"
 #let ends-with-cjk(it) = {
@@ -20,7 +21,7 @@
 
 #let remove-cjk-break-space(rest) = {
   rest = transform-childs(rest, remove-cjk-break-space)
-  if is-sequence(rest) {
+  if utils.is-sequence(rest) {
     let last-a = none
     let last-b = none
     for item in rest.children {

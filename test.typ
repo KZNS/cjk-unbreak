@@ -1,4 +1,4 @@
-#import "../lib.typ": *
+#import "lib.typ": *
 
 #show: remove-cjk-break-space
 

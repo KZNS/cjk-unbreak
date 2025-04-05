@@ -1,2 +1,2 @@
-#import "remove-cjk-break-space/lib.typ": *
-#import "transform/lib.typ" as transform
+#import "remove-cjk-break-space.typ": remove-cjk-break-space
+#import "transform-childs.typ": transform-childs
