@@ -1,7 +1,10 @@
 #import "transform-childs.typ": transform-childs
 #import "@preview/touying:0.6.1": utils
 
-#let cjk-char-regex = regex("[\p{Han}，。；：！？‘’“”（）「」【】…—]")
+#let cn-char = "\p{Han}，。；：！？‘’“”（）「」【】…—"
+#let jp-char = "\p{Hiragana}\p{Katakana}"
+#let cjk-char-regex = regex("[" + cn-char + jp-char + "]")
+
 #let ends-with-cjk(it) = (
   it != none
     and (
