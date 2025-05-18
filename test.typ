@@ -43,3 +43,5 @@ abc。
 你好
 
 去掉的是 `[ ]` 这种空格
+
+#place(bottom, float: true)[23333]
