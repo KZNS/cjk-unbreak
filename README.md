@@ -21,7 +21,7 @@ to be rendered as:
 Add the following code at the beginning of your document:
 
 ```typst
-#import "@preview/cjk-unbreak:0.1.0": remove-cjk-break-space
+#import "@preview/cjk-unbreak:0.1.1": remove-cjk-break-space
 #show: remove-cjk-break-space
 ```
 
