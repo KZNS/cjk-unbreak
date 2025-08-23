@@ -45,3 +45,13 @@ abc。
 去掉的是 `[ ]` 这种空格
 
 #place(bottom, float: true)[23333]
+#align(center)[6666]
+
+$underbrace(a, b)$ a 应该在上面  \
+#math.underbrace("a", "b")<underbrace-label> a 应该在上面
+
+#table(
+  [a],
+  [b],
+  [c],
+)
