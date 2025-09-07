@@ -2,10 +2,13 @@
 
 #let get-positional-param-names(it) = (
   if it.has("body") {
+    let func = it.func()
     // TODO: add more cases for math functions
-    if it.func() == math.underbrace {
+    if func == math.underbrace {
       ("body", "annotation")
-    } else if it.func() in (place, align) {
+    } else if func == link {
+      ("dest", "body")
+    } else if func in (place, align) {
       ("alignment", "body")
     } else {
       ("body",)
