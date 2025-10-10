@@ -20,6 +20,14 @@
   - 没空
     格
 
+如果是有序列表
+
+1. 有空 格
+2. 没空
+  格
+3.
++
+
 #import "@preview/cuti:0.3.0": *
 #show: show-cn-fakebold
 只检查 text 间的空格，其他类型不会去掉：\
