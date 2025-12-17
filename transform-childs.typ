@@ -32,7 +32,11 @@
     } else if func == link {
       ("dest", "body")
     } else if func == enum.item {
-      ("number", "body")
+      if it.has("number") {
+        ("number", "body")
+      } else {
+        ("body",)
+      }
     } else if func in (place, align) {
       ("alignment", "body")
     } else {
