@@ -63,6 +63,8 @@
       ("radicand",)
     } else if func == math.op {
       ("text",)
+    } else if func == terms.item {
+      ("term", "description")
     } else {
       // has no fields?
       none
