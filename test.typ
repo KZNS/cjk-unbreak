@@ -28,6 +28,12 @@
 3.
 +
 
+/ Terms 1: 描述
+  也是可以的
+  / Terms 2: 有空 格
+  / Terms 3: 没空
+    格
+
 #import "@preview/cuti:0.3.0": *
 #show: show-cn-fakebold
 只检查 text 间的空格，其他类型不会去掉：\

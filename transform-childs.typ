@@ -32,7 +32,11 @@
     } else if func == link {
       ("dest", "body")
     } else if func == enum.item {
-      ("number", "body")
+      if it.has("number") {
+        ("number", "body")
+      } else {
+        ("body",)
+      }
     } else if func in (place, align) {
       ("alignment", "body")
     } else {
@@ -59,6 +63,8 @@
       ("radicand",)
     } else if func == math.op {
       ("text",)
+    } else if func == terms.item {
+      ("term", "description")
     } else {
       // has no fields?
       none
