@@ -26,6 +26,7 @@
 2. 没空
   格
 3.
++ 有内容有空 格
 +
 
 / Terms 1: 描述
@@ -71,3 +72,11 @@ $underbrace(a, b)$ a 应该在上面  \
 )
 
 http://example.com
+
+// some tests and notes for AST content type
+#assert(type([]) == content)
+#assert(type([a]) == content)
+#assert(type([a] + [b]) == content)
+#assert([].func() == ([a] + [b]).func())
+#assert([a].func() == text)
+#assert([].func() != text)

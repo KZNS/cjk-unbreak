@@ -84,8 +84,12 @@
 #let transform-childs(it, transform-func) = {
   if type(it) == content {
     if utils.is-sequence(it) {
-      for item in it.children {
-        transform-func(item)
+      if it.children.len() == 0 {
+        it // it == []
+      } else {
+        for item in it.children {
+          transform-func(item)
+        }
       }
     } else if utils.is-styled(it) {
       let child = transform-func(it.child)
