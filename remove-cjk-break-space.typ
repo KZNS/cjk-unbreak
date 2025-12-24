@@ -25,7 +25,7 @@
 
 #let remove-cjk-break-space(rest) = {
   rest = transform-childs(rest, remove-cjk-break-space)
-  if utils.is-sequence(rest) {
+  if utils.is-sequence(rest) and rest.children.len() != 0 {
     let first = none
     let mid = none
     for third in rest.children {
