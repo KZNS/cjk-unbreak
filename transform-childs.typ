@@ -31,6 +31,8 @@
       ("body", "annotation")
     } else if func == link {
       ("dest", "body")
+    } else if func == rotate {
+      ("angle", "body")
     } else if func == enum.item {
       if it.has("number") {
         ("number", "body")
@@ -39,8 +41,6 @@
       }
     } else if func in (place, align) {
       ("alignment", "body")
-    } else if func == rotate {
-      ("angle", "body")
     } else {
       ("body",)
     }
