@@ -39,6 +39,8 @@
       }
     } else if func in (place, align) {
       ("alignment", "body")
+    } else if func == rotate {
+      ("angle", "body")
     } else {
       ("body",)
     }
