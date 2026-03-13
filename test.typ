@@ -80,3 +80,8 @@ http://example.com
 #assert([].func() == ([a] + [b]).func())
 #assert([a].func() == text)
 #assert([].func() != text)
+
+#rotate(2deg)[你好。abc。你好\
+  你好。
+  abc。
+  你好]
