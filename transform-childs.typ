@@ -31,16 +31,29 @@
       ("body", "annotation")
     } else if func == link {
       ("dest", "body")
-    } else if func == enum.item {
-      if it.has("number") {
-        ("number", "body")
+    } else {
+      // Handle parameters that are `Positional` but not `Required`.
+      if func == rotate {
+        if it.has("angle") {
+          ("angle", "body")
+        } else {
+          ("body",)
+        }
+      } else if func == enum.item {
+        if it.has("number") {
+          ("number", "body")
+        } else {
+          ("body",)
+        }
+      } else if func in (place, align) {
+        if it.has("alignment") {
+          ("alignment", "body")
+        } else {
+          ("body",)
+        }
       } else {
         ("body",)
       }
-    } else if func in (place, align) {
-      ("alignment", "body")
-    } else {
-      ("body",)
     }
   } else if it.has("children") {
     ("children",)

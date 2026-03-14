@@ -60,7 +60,10 @@ abc。
 去掉的是 `[ ]` 这种空格
 
 #place(bottom, float: true)[23333]
+#place[2333]
+
 #align(center)[6666]
+#align[6666]
 
 $underbrace(a, b)$ a 应该在上面  \
 #math.underbrace("a", "b")<underbrace-label> a 应该在上面
@@ -80,3 +83,11 @@ http://example.com
 #assert([].func() == ([a] + [b]).func())
 #assert([a].func() == text)
 #assert([].func() != text)
+
+#rotate(2deg)[你好。abc。你好\
+  你好。
+  abc。
+  你好]
+
+#rotate[ rotate 没空
+  格]
