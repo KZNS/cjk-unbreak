@@ -91,3 +91,7 @@ http://example.com
 
 #rotate[ rotate 没空
   格]
+
+#columns[#lorem(10)]
+#columns(3)[#lorem(10)]
+

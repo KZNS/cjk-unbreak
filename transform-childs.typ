@@ -45,6 +45,12 @@
         } else {
           ("body",)
         }
+      } else if func == columns {
+        if it.has("count") {
+          ("count", "body")
+        } else {
+          ("body",)
+        }
       } else if func in (place, align) {
         if it.has("alignment") {
           ("alignment", "body")
